@@ -42,7 +42,7 @@ export default function Component() {
 
 const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => (
   <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
-    {translations.nav.map((item) => (
+    {t.nav.map((item) => (
       <li key={item}>
         <a
           href={`#${item.toLowerCase()}`}
