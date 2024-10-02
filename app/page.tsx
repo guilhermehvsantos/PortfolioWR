@@ -430,7 +430,7 @@ export default function Component() {
                     className={`rounded-lg shadow-lg overflow-hidden ${
                       darkMode ? 'bg-gray-800' : 'bg-white'
                     }`}
-                    style={{ maxWidth: '400px' }}
+                    style={{ maxWidth: '600px' }}
                   >
                     <div
                       className={`h-48 bg-gradient-to-br ${
