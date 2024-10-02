@@ -226,7 +226,7 @@ export default function Component() {
             />
           </section>
 
-          <section id="profile" className="py-20 relative">
+          <section id="about" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
