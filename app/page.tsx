@@ -157,7 +157,7 @@ export default function Component() {
         </nav>
         <main className="pt-20">
           <section
-            id={`#${t.sectionIds[0]}`}
+            id="home"
             className="py-20 text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 z-0">
@@ -226,7 +226,7 @@ export default function Component() {
             />
           </section>
 
-          <section id={`#${t.sectionIds[1]}`} className="py-20 relative">
+          <section id="profile" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
@@ -307,7 +307,7 @@ export default function Component() {
             </div>
           </section>
 
-          <section id={`#${t.sectionIds[2]}`} className="py-20 relative">
+          <section id="projects" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
@@ -370,7 +370,7 @@ export default function Component() {
             </div>
           </section>
 
-          <section id={`#${t.sectionIds[3]}`} className="py-20 relative">
+          <section id="contact" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
