@@ -81,10 +81,10 @@ const translations = {
 
 export default function Page() {
   const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('pt');
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
-  const toggleLanguage = () => setLanguage(language === 'en' ? 'pt' : 'en');
+  const toggleLanguage = () => setLanguage(language === 'pt' ? 'en' : 'pt');
 
   const t = translations[language];
 
