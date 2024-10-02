@@ -40,31 +40,30 @@ export default function Component() {
     Spring: <SpringOriginal size={24} />,
   };
 
-  const NavItems = ({ mobile = false }) => (
-    <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
-      {t.nav.map((item) => (
-        <li key={item}>
-          <a
-            href={`#${item.toLowerCase()}`}
-            className={`text-base md:text-lg font-medium transition duration-300 relative group ${
-              darkMode
-                ? 'text-violet-400 hover:text-pink-500'
-                : 'text-blue-500 hover:text-cyan-500'
+const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => (
+  <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
+    {translations.nav.map((item) => (
+      <li key={item}>
+        <a
+          href={`#${item.toLowerCase()}`}
+          className={`text-base md:text-lg font-medium transition duration-300 relative group ${
+            darkMode
+              ? 'text-violet-400 hover:text-pink-500'
+              : 'text-blue-500 hover:text-cyan-500'
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {item}
+          <span
+            className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+              darkMode ? 'bg-pink-500' : 'bg-cyan-500'
             }`}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {item}
-            <span
-              className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                darkMode ? 'bg-pink-500' : 'bg-cyan-500'
-              }`}
-            ></span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
-
+          ></span>
+        </a>
+      </li>
+    ))}
+  </ul>
+);
   return (
     <div
       className={`min-h-screen ${
@@ -158,7 +157,12 @@ export default function Component() {
                     >
                       <div className="flex flex-col h-full justify-between py-6">
                         <div className="space-y-4">
-                          <NavItems mobile />
+                                <NavItems
+        translations={t}
+        darkMode={darkMode}
+        setIsMenuOpen={setIsMenuOpen}
+                                  mobile
+      />
                         </div>
                         <div className="flex justify-center space-x-4">
                           <button
