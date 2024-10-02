@@ -1,27 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { SunIcon, MoonIcon, GlobeIcon } from 'lucide-react';
-import {
-  JavaOriginal,
-  ReactOriginal,
-  Html5Plain,
-  Css3Plain,
-  AzuresqldatabaseOriginal,
-  JavascriptOriginal,
-  SpringOriginal,
-  Html5Original,
-  Css3Original,
-} from 'devicons-react';
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { translations } from './translations';
-
-type Language = 'en' | 'pt';
+import React, { useState } from 'react';
+import { translations } from './path/to/translations'; // Adjust the path accordingly
+import { JavaOriginal, JavascriptOriginal, Html5Original, Css3Original, AzuresqldatabaseOriginal, ReactOriginal, SpringOriginal } from 'some-icon-library'; // Import your icon components
+import { SunIcon, MoonIcon, GlobeIcon } from 'some-icon-library'; // Import your icons
+import { Sheet, SheetTrigger, SheetContent } from 'some-ui-library'; // Import your sheet component
 
 export default function Component() {
   const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState<Language>('pt');
+  const [language, setLanguage] = useState('pt');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
@@ -29,70 +16,51 @@ export default function Component() {
 
   const t = translations[language];
 
-  const skillIcons: { [key: string]: React.ReactNode } = {
+  const skillIcons = {
     Java: <JavaOriginal size={24} />,
     Javascript: <JavascriptOriginal size={24} />,
     Html: <Html5Original size={24} />,
     Css: <Css3Original size={24} />,
     SQL: <AzuresqldatabaseOriginal size={24} />,
     React: <ReactOriginal size={24} />,
-    JavaScript: <JavascriptOriginal size={24} />,
     Spring: <SpringOriginal size={24} />,
   };
 
-  const Portfolio = ({ language }) => {
-  const { sectionIds } = translations[language];
-
-const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => (
-  <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
-    {t.nav.map((item) => (
-      <li key={item}>
-        <a
-          href={`#${t.sectionIds[item.toLowerCase()]}`}
-          className={`text-base md:text-lg font-medium transition duration-300 relative group ${
-            darkMode
-              ? 'text-violet-400 hover:text-pink-500'
-              : 'text-blue-500 hover:text-cyan-500'
-          }`}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {item}
-          <span
-            className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-              darkMode ? 'bg-pink-500' : 'bg-cyan-500'
+  const NavItems = ({ mobile = false }) => (
+    <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
+      {t.nav.map((item) => (
+        <li key={item}>
+          <a
+            href={`#${t.sectionIds[item.toLowerCase()]}`} // Ensure correct section ID
+            className={`text-base md:text-lg font-medium transition duration-300 relative group ${
+              darkMode
+                ? 'text-violet-400 hover:text-pink-500'
+                : 'text-blue-500 hover:text-cyan-500'
             }`}
-          ></span>
-        </a>
-      </li>
-    ))}
-  </ul>
-);
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {item}
+            <span
+              className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                darkMode ? 'bg-pink-500' : 'bg-cyan-500'
+              }`}
+            ></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div
-      className={`min-h-screen ${
-        darkMode ? 'bg-gray-900 text-pink-100' : 'bg-blue-50 text-blue-900'
-      }`}
+      className={`min-h-screen ${darkMode ? 'bg-gray-900 text-pink-100' : 'bg-blue-50 text-blue-900'}`}
     >
-      <div
-        className={`fixed inset-0 bg-grid-pattern opacity-10 pointer-events-none ${
-          darkMode ? '' : 'invert'
-        }`}
-      />
+      <div className={`fixed inset-0 bg-grid-pattern opacity-10 pointer-events-none ${darkMode ? '' : 'invert'}`} />
       <div className="relative">
-        <nav
-          className={`fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-md ${
-            darkMode ? 'bg-gray-900' : 'bg-white'
-          }`}
-        >
+        <nav className={`fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-md ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center py-4">
-              <h1
-                className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${
-                  darkMode
-                    ? 'from-pink-500 to-violet-500'
-                    : 'from-blue-500 to-cyan-500'
-                }`}
-              >
+              <h1 className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-pink-500 to-violet-500' : 'from-blue-500 to-cyan-500'}`}>
                 {t.name}
               </h1>
               <div className="flex items-center space-x-6">
@@ -107,11 +75,7 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
                     }`}
                     aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
                   >
-                    {darkMode ? (
-                      <SunIcon className="w-5 h-5" />
-                    ) : (
-                      <MoonIcon className="w-5 h-5" />
-                    )}
+                    {darkMode ? <SunIcon className="w-5 h-5" /> : <MoonIcon className="w-5 h-5" />}
                   </button>
                   <button
                     onClick={toggleLanguage}
@@ -129,43 +93,21 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
                   <Sheet>
                     <SheetTrigger asChild>
                       <button
-                        className={`p-2 rounded-md ${
-                          darkMode
-                            ? 'bg-gray-700 text-pink-200'
-                            : 'bg-gray-200 text-blue-500'
-                        }`}
+                        className={`p-2 rounded-md ${darkMode ? 'bg-gray-700 text-pink-200' : 'bg-gray-200 text-blue-500'}`}
                         aria-label="Open menu"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16M4 18h16"
-                          />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                       </button>
                     </SheetTrigger>
                     <SheetContent
                       side="right"
-                      className={`w-[300px] sm:w-[400px] ${
-                        darkMode ? 'bg-gray-800 text-pink-100' : 'bg-white text-blue-900'
-                      }`}
+                      className={`w-[300px] sm:w-[400px] ${darkMode ? 'bg-gray-800 text-pink-100' : 'bg-white text-blue-900'}`}
                     >
                       <div className="flex flex-col h-full justify-between py-6">
                         <div className="space-y-4">
-                                <NavItems
-        translations={t}
-        darkMode={darkMode}
-        setIsMenuOpen={setIsMenuOpen}
-                                  mobile
-      />
+                          <NavItems mobile />
                         </div>
                         <div className="flex justify-center space-x-4">
                           <button
@@ -177,18 +119,12 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
                             }`}
                             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
                           >
-                            {darkMode ? (
-                              <SunIcon className="w-6 h-6" />
-                            ) : (
-                              <MoonIcon className="w-6 h-6" />
-                            )}
+                            {darkMode ? <SunIcon className="w-6 h-6" /> : <MoonIcon className="w-6 h-6" />}
                           </button>
                           <button
                             onClick={toggleLanguage}
                             className={`p-2 rounded-full transition-all duration-300 transform hover:[transform:rotateY(180deg)] ${
-                              darkMode
-                                ? 'bg-gray-700 text-yellow-300'
-                                : 'bg-gray-200 text-blue-500'
+                              darkMode ? 'bg-gray-700 text-yellow-300' : 'bg-gray-200 text-blue-500'
                             }`}
                             aria-label={language === 'en' ? "Switch to Portuguese" : "Switch to English"}
                           >
@@ -203,7 +139,6 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
             </div>
           </div>
         </nav>
-
         <main className="pt-20">
           <section
             id={sectionIds.home}
