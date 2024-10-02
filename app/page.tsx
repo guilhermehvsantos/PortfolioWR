@@ -34,8 +34,8 @@ const translations = {
     },
     skills: ['Html', 'Css', 'Javascript', 'Java', 'SQL', 'React', 'Spring'],
     projects: {
-      title: 'Projects',
-      description: 'A brief description of the project and its main features.',
+      title: 'Under construction',
+      description: 'Coming soon.',
       cta: 'Learn More',
     },
     contact: {
@@ -63,9 +63,9 @@ const translations = {
     },
     skills: ['Html', 'Css', 'Javascript', 'Java', 'SQL', 'React', 'Spring'],
     projects: {
-      title: 'Projetos',
+      title: 'Em construção',
       description:
-        'Uma breve descrição do projeto e suas principais características.',
+        'Em breve.',
       cta: 'Saiba Mais',
     },
     contact: {
@@ -341,7 +341,7 @@ export default function Page() {
                 {t.projects.title}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3, 4].map((project) => (
+                {[1].map((project) => (
                   <motion.div
                     key={project}
                     whileHover={{ scale: 1.05 }}
