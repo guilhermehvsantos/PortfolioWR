@@ -15,7 +15,7 @@ import {
   Css3Original,
 } from 'devicons-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { translations } from './translations';
+
 type Language = 'en' | 'pt';
 
 export default function Component() {
@@ -25,6 +25,7 @@ export default function Component() {
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
   const toggleLanguage = () => setLanguage(language === 'pt' ? 'en' : 'pt');
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const t = translations[language];
 
