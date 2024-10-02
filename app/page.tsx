@@ -48,7 +48,7 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
     {t.nav.map((item) => (
       <li key={item}>
         <a
-          href={`#${translations.sectionIds[item.toLowerCase()]}`}
+          href={`#${t.sectionIds[item.toLowerCase()]}`}
           className={`text-base md:text-lg font-medium transition duration-300 relative group ${
             darkMode
               ? 'text-violet-400 hover:text-pink-500'
