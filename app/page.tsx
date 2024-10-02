@@ -340,11 +340,8 @@ export default function Page() {
               >
                 {t.projects.title}
               </h3>
-              {/* Temporarily 1 for all sizes
-              // grid-cols-1 md:grid-cols-2 lg:grid-cols-3 */}
-              
-              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
-                {[1].map((project) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[1,2,3].map((project) => (
                   <motion.div
                     key={project}
                     whileHover={{ scale: 1.05 }}
