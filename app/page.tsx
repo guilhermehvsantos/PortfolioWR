@@ -15,6 +15,7 @@ import {
   Css3Original,
 } from 'devicons-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { translations } from './translations';
 
 type Language = 'en' | 'pt';
 
@@ -42,10 +43,11 @@ export default function Component() {
 
   const NavItems = ({ mobile = false }) => (
     <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
-      {t.nav.map((item) => (
+      {t.nav.map((item, i) => (
         <li key={item}>
+          
           <a
-            href={`#${t.sectionIds[item.toLowerCase()]}`} // Ensure correct section ID
+            href={`#${t.sectionIds[i]}`}
             className={`text-base md:text-lg font-medium transition duration-300 relative group ${
               darkMode
                 ? 'text-violet-400 hover:text-pink-500'
@@ -155,7 +157,7 @@ export default function Component() {
         </nav>
         <main className="pt-20">
           <section
-            id={sectionIds.home}
+            id={`#${t.sectionIds[0]}`}
             className="py-20 text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 z-0">
@@ -224,7 +226,7 @@ export default function Component() {
             />
           </section>
 
-          <section id={sectionIds.about} className="py-20 relative">
+          <section id={`#${t.sectionIds[1]}`} className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
@@ -305,7 +307,7 @@ export default function Component() {
             </div>
           </section>
 
-          <section id={sectionIds.projects} className="py-20 relative">
+          <section id={`#${t.sectionIds[2]}`} className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
@@ -368,7 +370,7 @@ export default function Component() {
             </div>
           </section>
 
-          <section id={sectionIds.contact} className="py-20 relative">
+          <section id={`#${t.sectionIds[3]}`} className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${

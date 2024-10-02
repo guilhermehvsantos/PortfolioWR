@@ -1,14 +1,20 @@
-'use client';
+interface SectionIds {
+  home: string;
+  about: string;
+  projects: string;
+  contact: string;
+}
+
+interface Translations {
+  name: string;
+  nav: string[];
+  sectionIds: SectionIds; // Definindo o tipo para sectionIds
+}
 export const translations = {
   en: {
     name: 'Guilherme Santos',
     nav: ['Home', 'About', 'Projects', 'Contact'],
-    sectionIds: {
-      home: 'home',
-      about: 'about',
-      projects: 'projects',
-      contact: 'contact',
-    },
+    sectionIds: ['home','about', 'projects','contact'],
     hero: {
       title: 'Welcome to my portfolio!',
       subtitle: 'Here you will find a selection of my projects and experiences as a developer. Feel free to explore!',
@@ -37,12 +43,7 @@ export const translations = {
   pt: {
     name: 'Guilherme Santos',
     nav: ['Início', 'Sobre', 'Projetos', 'Contato'],
-    sectionIds: {
-      home: 'inicio',
-      about: 'sobre',
-      projects: 'projetos',
-      contact: 'contato',
-    },
+    sectionIds: ['home','about', 'projects','contact'],
     hero: {
       title: 'Bem-vindo ao meu portfólio!',
       subtitle: 'Aqui você encontrará uma seleção dos meus projetos e experiências como desenvolvedor. Sinta-se à vontade para explorar!',
