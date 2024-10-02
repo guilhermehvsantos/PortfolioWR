@@ -14,6 +14,7 @@ import {
   Html5Original,
   Css3Original,
 } from 'devicons-react';
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 type Language = 'en' | 'pt';
 
@@ -79,25 +80,53 @@ const translations = {
   },
 };
 
-export default function Page() {
+export default function Component() {
   const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState<Language>('pt');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
   const toggleLanguage = () => setLanguage(language === 'pt' ? 'en' : 'pt');
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const t = translations[language];
 
   const skillIcons: { [key: string]: React.ReactNode } = {
-    Java: <JavaOriginal size={20} />,
-    Javascript: <JavascriptOriginal size={20} />,
-    Html: <Html5Original size={20} />,
-    Css: <Css3Original size={20} />,
-    SQL: <AzuresqldatabaseOriginal size={20} />,
-    React: <ReactOriginal size={20} />,
-    JavaScript: <JavascriptOriginal size={20} />,
-    Spring: <SpringOriginal size={20} />,
+    Java: <JavaOriginal size={24} />,
+    Javascript: <JavascriptOriginal size={24} />,
+    Html: <Html5Original size={24} />,
+    Css: <Css3Original size={24} />,
+    SQL: <AzuresqldatabaseOriginal size={24} />,
+    React: <ReactOriginal size={24} />,
+    JavaScript: <JavascriptOriginal size={24} />,
+    Spring: <SpringOriginal size={24} />,
   };
+
+  const NavItems = ({ mobile = false }) => (
+    <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
+      {t.nav.map((item) => (
+        <li key={item}>
+          <a
+            href={`#${item.toLowerCase()}`}
+            className={`text-base md:text-lg font-medium transition duration-300 relative group ${
+              darkMode
+                ? 'text-violet-400 hover:text-pink-500'
+                : 'text-blue-500 hover:text-cyan-500'
+            }`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {item}
+            <span
+              className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                darkMode ? 'bg-pink-500' : 'bg-cyan-500'
+              }`}
+            ></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div
       className={`min-h-screen ${
@@ -111,7 +140,9 @@ export default function Page() {
       />
       <div className="relative">
         <nav
-          className={`fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-md `}
+          className={`fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-md ${
+            darkMode ? 'bg-gray-900' : 'bg-white'
+          }`}
         >
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center py-4">
@@ -124,55 +155,106 @@ export default function Page() {
               >
                 {t.name}
               </h1>
-              <ul className="flex space-x-6 items-center">
-                {t.nav.map((item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className={`text-sm font-medium transition duration-300 relative group ${
-                        darkMode
-                          ? 'text-violet-400 hover:text-pink-500'
-                          : 'text-blue-500 hover:text-cyan-500'
-                      }`}
-                    >
-                      {item}
-                      <span
-                        className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                          darkMode ? 'bg-pink-500' : 'bg-cyan-500'
-                        }`}
-                      ></span>
-                    </a>
-                  </li>
-                ))}
-                <li>
+              <div className="flex items-center space-x-6">
+                <NavItems />
+                <div className="hidden md:flex items-center space-x-2">
                   <button
                     onClick={toggleDarkMode}
-                    className={`p-1 rounded-full ${
+                    className={`p-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
                       darkMode
-                        ? 'bg-gray-700 text-yellow-300'
-                        : 'bg-gray-200 text-blue-500'
+                        ? 'bg-gray-700 text-yellow-300 hover:bg-gray-200 hover:text-blue-500'
+                        : 'bg-gray-200 text-blue-500 hover:bg-gray-700 hover:text-yellow-300'
                     }`}
+                    aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
                   >
                     {darkMode ? (
-                      <SunIcon className="w-4 h-4" />
+                      <SunIcon className="w-5 h-5" />
                     ) : (
-                      <MoonIcon className="w-4 h-4" />
+                      <MoonIcon className="w-5 h-5" />
                     )}
                   </button>
-                </li>
-                <li>
                   <button
                     onClick={toggleLanguage}
-                    className={`p-1 rounded-full ${
+                    className={`p-2 rounded-full transition-all duration-300 transform hover:[transform:rotateY(180deg)] ${
                       darkMode
                         ? 'bg-gray-700 text-yellow-300'
                         : 'bg-gray-200 text-blue-500'
                     }`}
+                    aria-label={language === 'en' ? "Switch to Portuguese" : "Switch to English"}
                   >
-                    <GlobeIcon className="w-4 h-4" />
+                    <GlobeIcon className="w-5 h-5" />
                   </button>
-                </li>
-              </ul>
+                </div>
+                <div className="md:hidden">
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <button
+                        className={`p-2 rounded-md ${
+                          darkMode
+                            ? 'bg-gray-700 text-pink-200'
+                            : 'bg-gray-200 text-blue-500'
+                        }`}
+                        aria-label="Open menu"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 6h16M4 12h16M4 18h16"
+                          />
+                        </svg>
+                      </button>
+                    </SheetTrigger>
+                    <SheetContent
+                      side="right"
+                      className={`w-[300px] sm:w-[400px] ${
+                        darkMode ? 'bg-gray-800 text-pink-100' : 'bg-white text-blue-900'
+                      }`}
+                    >
+                      <div className="flex flex-col h-full justify-between py-6">
+                        <div className="space-y-4">
+                          <NavItems mobile />
+                        </div>
+                        <div className="flex justify-center space-x-4">
+                          <button
+                            onClick={toggleDarkMode}
+                            className={`p-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
+                              darkMode
+                                ? 'bg-gray-700 text-yellow-300 hover:bg-gray-200 hover:text-blue-500'
+                                : 'bg-gray-200 text-blue-500 hover:bg-gray-700 hover:text-yellow-300'
+                            }`}
+                            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+                          >
+                            {darkMode ? (
+                              <SunIcon className="w-6 h-6" />
+                            ) : (
+                              <MoonIcon className="w-6 h-6" />
+                            )}
+                          </button>
+                          <button
+                            onClick={toggleLanguage}
+                            className={`p-2 rounded-full transition-all duration-300 transform hover:[transform:rotateY(180deg)] ${
+                              darkMode
+                                ? 'bg-gray-700 text-yellow-300'
+                                : 'bg-gray-200 text-blue-500'
+                            }`}
+                            aria-label={language === 'en' ? "Switch to Portuguese" : "Switch to English"}
+                          >
+                            <GlobeIcon className="w-6 h-6" />
+                          </button>
+                        </div>
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+                </div>
+              </div>
             </div>
           </div>
         </nav>
@@ -201,7 +283,7 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${
+                className={`text-4xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${
                   darkMode
                     ? 'from-pink-400 via-violet-500 to-purple-500'
                     : 'from-zinc-300 via-white to-zinc-300'
@@ -213,11 +295,11 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className={
+                className={`text-lg md:text-xl mb-8 ${
                   darkMode
-                    ? 'text-xl mb-8 text-violet-300'
-                    : 'text-xl mb-8 text-white'
-                }
+                    ? 'text-violet-300'
+                    : 'text-white'
+                }`}
               >
                 {t.hero.subtitle}
               </motion.p>
@@ -251,7 +333,7 @@ export default function Page() {
           <section id="about" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
-                className={`text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
+                className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
                   darkMode
                     ? 'from-pink-400 to-violet-500'
                     : 'from-cyan-500 to-blue-500'
@@ -283,13 +365,13 @@ export default function Page() {
                     {t.skills.map((skill) => (
                       <div
                         key={skill}
-                        className={`flex items-center space-x-2 px-3 py-1 rounded-full ${
+                        className={`flex items-center space-x-2 px-3 py-1 rounded-full transition-transform duration-300 hover:scale-105 ${
                           darkMode ? 'bg-gray-800' : 'bg-gray-200'
                         }`}
                       >
                         {skillIcons[skill] || (
                           <div
-                            className={`w-5 h-5 rounded-full ${
+                            className={`w-6 h-6 rounded-full ${
                               darkMode ? 'bg-purple-400' : 'bg-blue-600'
                             }`}
                           />
@@ -332,7 +414,7 @@ export default function Page() {
           <section id="projects" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
-                className={`text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
+                className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
                   darkMode
                     ? 'from-violet-400 to-pink-500'
                     : 'from-blue-600 to-cyan-500'
@@ -340,16 +422,16 @@ export default function Page() {
               >
                 {t.projects.title}
               </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"> 
-                  {projects.map((project) => (
-                    <motion.div
-                      key={project.id}
-                      whileHover={{ scale: 1.05 }}
-                      className={`rounded-lg shadow-lg overflow-hidden ${
-                        darkMode ? 'bg-gray-800' : 'bg-white'
-                      }`}
-                      style={{ maxWidth: '400px' }}
-                    >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                {[1, 2, 3].map((project) => (
+                  <motion.div
+                    key={project}
+                    whileHover={{ scale: 1.05 }}
+                    className={`rounded-lg shadow-lg overflow-hidden ${
+                      darkMode ? 'bg-gray-800' : 'bg-white'
+                    }`}
+                    style={{ maxWidth: '400px' }}
+                  >
                     <div
                       className={`h-48 bg-gradient-to-br ${
                         darkMode
@@ -394,7 +476,7 @@ export default function Page() {
           <section id="contact" className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
-                className={`text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
+                className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
                   darkMode
                     ? 'from-pink-500 to-violet-500'
                     : 'from-blue-600 to-cyan-500'
