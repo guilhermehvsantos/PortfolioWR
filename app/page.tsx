@@ -341,13 +341,11 @@ export default function Page() {
                 {t.projects.title}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1,2,3].map((project) => (
-                  <motion.div
-                    key={project}
+              {projects.map((project) => (
+                <motion.div
+                    key={project.id}
                     whileHover={{ scale: 1.05 }}
-                    className={`rounded-lg shadow-lg overflow-hidden ${
-                      darkMode ? 'bg-gray-800' : 'bg-white'
-                    }`}
+                    className={`rounded-lg shadow-lg overflow-hidden ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
                   >
                     <div
                       className={`h-48 bg-gradient-to-br ${
