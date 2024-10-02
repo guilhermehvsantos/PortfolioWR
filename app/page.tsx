@@ -40,6 +40,18 @@ export default function Component() {
     JavaScript: <JavascriptOriginal size={24} />,
     Spring: <SpringOriginal size={24} />,
   };
+const handleSmoothScroll = (event) => {
+  event.preventDefault();
+  const targetId = event.currentTarget.getAttribute("href");
+  const targetElement = document.querySelector(targetId);
+
+  if (targetElement) {
+    window.scrollTo({
+      top: targetElement.offsetTop,
+      behavior: 'smooth'
+    });
+  }
+};
 
   const NavItems = ({ mobile = false }) => (
     <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
@@ -53,6 +65,7 @@ export default function Component() {
                 ? 'text-violet-400 hover:text-pink-500'
                 : 'text-blue-500 hover:text-cyan-500'
             }`}
+            onClick={(event) => handleSmoothScroll(event)}
             onClick={() => setIsMenuOpen(false)}
           >
             {item}
