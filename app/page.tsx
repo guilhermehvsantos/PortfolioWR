@@ -40,24 +40,12 @@ export default function Component() {
     JavaScript: <JavascriptOriginal size={24} />,
     Spring: <SpringOriginal size={24} />,
   };
-const handleSmoothScroll = (event) => {
-  event.preventDefault();
-  const targetId = event.currentTarget.getAttribute("href");
-  const targetElement = document.querySelector(targetId);
-
-  if (targetElement) {
-    window.scrollTo({
-      top: targetElement.offsetTop,
-      behavior: 'smooth'
-    });
-  }
-};
 
   const NavItems = ({ mobile = false }) => (
     <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
       {t.nav.map((item, i) => (
         <li key={item}>
-          
+
           <a
             href={`#${t.sectionIds[i]}`}
             className={`text-base md:text-lg font-medium transition duration-300 relative group ${
@@ -65,7 +53,6 @@ const handleSmoothScroll = (event) => {
                 ? 'text-violet-400 hover:text-pink-500'
                 : 'text-blue-500 hover:text-cyan-500'
             }`}
-            onClick={(event) => handleSmoothScroll(event)}
             onClick={() => setIsMenuOpen(false)}
           >
             {item}
@@ -79,6 +66,7 @@ const handleSmoothScroll = (event) => {
       ))}
     </ul>
   );
+
 
   return (
     <div
