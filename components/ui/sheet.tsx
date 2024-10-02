@@ -38,20 +38,6 @@ const SheetOverlay = React.forwardRef<
 
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
-// ... rest of your code
-
-export {
-  Sheet,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription,
-}
-
-
 const SheetHeader = ({
   className,
   ...props
