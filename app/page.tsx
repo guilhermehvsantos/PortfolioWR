@@ -80,7 +80,7 @@ const translations = {
 };
 
 export default function Page() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState<Language>('en');
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
