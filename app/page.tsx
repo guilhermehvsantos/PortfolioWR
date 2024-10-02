@@ -1,14 +1,26 @@
 'use client';
 
-import React, { useState } from 'react';
-import { translations } from './path/to/translations'; // Adjust the path accordingly
-import { JavaOriginal, JavascriptOriginal, Html5Original, Css3Original, AzuresqldatabaseOriginal, ReactOriginal, SpringOriginal } from 'some-icon-library'; // Import your icon components
-import { SunIcon, MoonIcon, GlobeIcon } from 'some-icon-library'; // Import your icons
-import { Sheet, SheetTrigger, SheetContent } from 'some-ui-library'; // Import your sheet component
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { SunIcon, MoonIcon, GlobeIcon } from 'lucide-react';
+import {
+  JavaOriginal,
+  ReactOriginal,
+  Html5Plain,
+  Css3Plain,
+  AzuresqldatabaseOriginal,
+  JavascriptOriginal,
+  SpringOriginal,
+  Html5Original,
+  Css3Original,
+} from 'devicons-react';
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { translations } from './translations';
+type Language = 'en' | 'pt';
 
 export default function Component() {
   const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState('pt');
+  const [language, setLanguage] = useState<Language>('pt');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
@@ -16,13 +28,14 @@ export default function Component() {
 
   const t = translations[language];
 
-  const skillIcons = {
+  const skillIcons: { [key: string]: React.ReactNode } = {
     Java: <JavaOriginal size={24} />,
     Javascript: <JavascriptOriginal size={24} />,
     Html: <Html5Original size={24} />,
     Css: <Css3Original size={24} />,
     SQL: <AzuresqldatabaseOriginal size={24} />,
     React: <ReactOriginal size={24} />,
+    JavaScript: <JavascriptOriginal size={24} />,
     Spring: <SpringOriginal size={24} />,
   };
 
