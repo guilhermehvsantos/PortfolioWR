@@ -40,12 +40,15 @@ export default function Component() {
     Spring: <SpringOriginal size={24} />,
   };
 
+  const Portfolio = ({ language }) => {
+  const { sectionIds } = translations[language];
+
 const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => (
   <ul className={`${mobile ? 'flex flex-col space-y-4' : 'hidden md:flex md:space-x-6'}`}>
     {t.nav.map((item) => (
       <li key={item}>
         <a
-          href={`#${item.toLowerCase()}`}
+          href={`#${translations.sectionIds[item.toLowerCase()]}`}
           className={`text-base md:text-lg font-medium transition duration-300 relative group ${
             darkMode
               ? 'text-violet-400 hover:text-pink-500'
@@ -203,7 +206,7 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
 
         <main className="pt-20">
           <section
-            id="home"
+            id={sectionIds.home}
             className="py-20 text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 z-0">
@@ -272,7 +275,7 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
             />
           </section>
 
-          <section id="about" className="py-20 relative">
+          <section id={sectionIds.about} className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
@@ -353,7 +356,7 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
             </div>
           </section>
 
-          <section id="projects" className="py-20 relative">
+          <section id={sectionIds.projects} className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
@@ -416,7 +419,7 @@ const NavItems = ({ mobile = false, translations, darkMode, setIsMenuOpen }) => 
             </div>
           </section>
 
-          <section id="contact" className="py-20 relative">
+          <section id={sectionIds.contact} className="py-20 relative">
             <div className="container mx-auto px-4">
               <h3
                 className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
