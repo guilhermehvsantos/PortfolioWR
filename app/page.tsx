@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SunIcon, MoonIcon, GlobeIcon } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 import {
   JavaOriginal,
   ReactOriginal,
-  Html5Plain,
-  Css3Plain,
   AzuresqldatabaseOriginal,
   JavascriptOriginal,
   SpringOriginal,
@@ -466,11 +467,36 @@ export default function Component() {
         </main>
 
         <footer
-          className={`py-6 text-center ${
-            darkMode ? 'text-pink-400' : 'text-gray-600'
-          }`}
         >
-          <p>{t.footer}</p>
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex space-x-4 my-4 md:mt-0">
+                <a
+                  href="https://www.linkedin.com/in/guilhermehvs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors duration-300 ${
+                    darkMode ? 'text-pink-400 hover:text-violet-400' : 'text-blue-500 hover:text-cyan-500'
+                  }`}
+                  aria-label="LinkedIn Profile"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                </a>
+                <a
+                  href="https://github.com/guilhermehvsantos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors duration-300 ${
+                    darkMode ? 'text-pink-400 hover:text-violet-400' : 'text-blue-500 hover:text-cyan-500'
+                  }`}
+                  aria-label="GitHub Profile"
+                >
+                  <FontAwesomeIcon icon={faGithub} size="lg" />
+                </a>
+              </div>
+              <p>{t.footer}</p>
+            </div>
+          </div>
         </footer>
       </div>
     </div>
