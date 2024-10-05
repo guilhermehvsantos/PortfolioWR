@@ -469,7 +469,7 @@ export default function Component() {
         <footer
         >
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex flex-col justify-between items-center">
               <div className="flex space-x-4 my-4 md:mt-0">
                 <a
                   href="https://www.linkedin.com/in/guilhermehvs/"
