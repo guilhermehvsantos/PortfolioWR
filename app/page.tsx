@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { SunIcon, MoonIcon, GlobeIcon } from 'lucide-react';
+import { SunIcon, MoonIcon, GlobeIcon, ExternalLink  } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
@@ -335,7 +335,7 @@ export default function Component() {
           style={{ minWidth: '300px' }}
         >
           <div
-            className={`h-48 bg-cover bg-center`}
+            className={`h-48 bg-contain bg-no-repeat bg-center m-4 border-1`}
             style={{ backgroundImage: `url(${project.image})` }}
           />
           <div className="p-6">
@@ -351,9 +351,11 @@ export default function Component() {
             >
               {project.description}
             </p>
+            <div className="flex justify-between content-center">
+
             <a
               href={project.link}
-              className={`inline-block bg-gradient-to-r text-white px-4 py-2 rounded-full font-semibold transition duration-300 ${
+              className={`bg-gradient-to-r text-white px-4 py-2 rounded-full font-semibold transition duration-300 ${
                 darkMode
                   ? 'from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600'
                   : 'from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600'
@@ -363,6 +365,19 @@ export default function Component() {
             >
               {t.projects.cta}
             </a>
+            <a
+              href={project.try}
+              className={`bg-gradient-to-r text-white p-2 rounded-full transition-all duration-300 transform hover:[transform:rotateZ(45deg)] ${
+                darkMode
+                  ? 'from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600'
+                  : 'from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600'
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink className="w-6 h-6"/>
+            </a>
+            </div>
           </div>
         </motion.div>
       ))}
