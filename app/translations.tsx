@@ -28,19 +28,22 @@ export const translations = {
     skills: ["Html", "Css", "Javascript", "Java", "SQL", "React", "Spring"],
     projects: {
       "title": "Projects",
+      "subtitle": "All the projects here are part of my learning and evolution process in programming, starting from my first contact with programming logic, working with the triad of HTML, CSS, and JavaScript, then moving on to React and TypeScript in the frontend, and currently developing more robust projects focusing on Java/Spring",
       "cta": "Learn More",
       "projectsList": [
         {
           "name": "Top Trumps",
           "link": "https://github.com/guilhermehvsantos/Jojo-SuperTrunfo",
           "description": "Card game based on the Jojo's anime using JS, HTML and CSS",
-          "image": "https://media.vgm.io/products/81/2618/2618-1594042212.png"
+          "image": "https://media.vgm.io/products/81/2618/2618-1594042212.png",
+          "try": "https://guilhermehvsantos.github.io/Jojo-SuperTrunfo/"
         },
         {
           "name": "Soon 2",
           "link": "https://github.com/guilhermehvsantos",
           "description": "Under construction",
-          "image": " "
+          "image": " ",
+          "try": "https://guilhermehvsantos.github.io/Pokedex/"
         },        
         {
           "name": "Soon 3",
@@ -76,6 +79,7 @@ export const translations = {
     skills: ["Html", "Css", "Javascript", "Java", "SQL", "React", "Spring"],
     projects: {
       "title": "Projetos",
+      "subtitle": "Todos os projetos aqui fazem parte do meu processo de aprendizado e evolução na programação, desde o primeiro contato com lógica de programação, trabalhando com a tríade de HTML, CSS e Javascript, passando posteriormente para React a Typescript no frontend a atualmente desenvolvendo projetos mais robustos com foco em Java/Spring.",
       "cta": "Saiba Mais",
       "projectsList": [
         {
@@ -86,10 +90,11 @@ export const translations = {
           "try": "https://guilhermehvsantos.github.io/Jojo-SuperTrunfo/"
         },
         {
-          "name": "Em breve 2",
-          "link": "https://github.com/guilhermehvsantos",
-          "description": "Em construção",
-          "image": " "
+          "name": "Pokedex",
+          "link": "https://github.com/guilhermehvsantos/Pokedex",
+          "description": "Pokedex utilizando Typescript e React trabalhando com fetch API",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/768px-Pok%C3%A9_Ball_icon.svg.png?20161023215848",
+          "try": "https://guilhermehvsantos.github.io/Pokedex/"
         },
         {
           "name": "Em breve 3",
