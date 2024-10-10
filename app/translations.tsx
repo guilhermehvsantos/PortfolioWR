@@ -27,9 +27,22 @@ export const translations = {
     },
     skills: ['Html', 'Css', 'Javascript', 'Java', 'SQL', 'React', 'Spring'],
     projects: {
-      title: 'Under construction',
-      description: 'Coming soon.',
-      cta: 'Learn More',
+      "title": "Projects",
+      "cta": "Learn More",
+      "projectsList": [
+        {
+          "name": "Soon",
+          "link": "https://github.com/guilhermehvsantos",
+          "description": "Under construction",
+          "image": " "
+        },
+        {
+          "name": "Soon",
+          "link": "https://github.com/guilhermehvsantos",
+          "description": "Under construction",
+          "image": " "
+        }
+      ]
     },
     contact: {
       title: 'Get in Touch',
@@ -56,9 +69,22 @@ export const translations = {
     },
     skills: ['Html', 'Css', 'Javascript', 'Java', 'SQL', 'React', 'Spring'],
     projects: {
-      title: 'Em construção',
-      description: 'Em breve.',
-      cta: 'Saiba Mais',
+      "title": "Projetos",
+      "cta": "Saiba Mais",
+      "projectsList": [
+        {
+          "name": "Em breve",
+          "link": "https://github.com/guilhermehvsantos",
+          "description": "Em construção",
+          "image": " "
+        },
+        {
+          "name": "Em breve",
+          "link": "https://github.com/guilhermehvsantos",
+          "description": "Em construção",
+          "image": " "
+        }
+      ]
     },
     contact: {
       title: 'Entre em Contato',

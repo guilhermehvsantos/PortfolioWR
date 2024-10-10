@@ -310,67 +310,66 @@ export default function Component() {
           </section>
 
           <section id="projects" className="py-20 relative">
-            <div className="container mx-auto px-4">
-              <h3
-                className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
-                  darkMode
-                    ? 'from-violet-400 to-pink-500'
-                    : 'from-blue-600 to-cyan-500'
-                }`}
-              >
-                {t.projects.title}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-                {[1, 2, 3].map((project) => (
-                  <motion.div
-                    key={project}
-                    whileHover={{ scale: 1.05 }}
-                    className={`rounded-lg shadow-lg overflow-hidden ${
-                      darkMode ? 'bg-gray-800' : 'bg-white'
-                    }`}
-                    style={{ minWidth: '300px',
-                  maxWidth: '600px' }}
-                  >
-                    <div
-                      className={`h-48 bg-gradient-to-br ${
-                        darkMode
-                          ? 'from-pink-400 via-violet-500 to-purple-500'
-                          : 'from-blue-300 via-cyan-400 to-blue-500'
-                      }`}
-                    />
-                    <div className="p-6">
-                      <h4
-                        className={`text-2xl font-semibold mb-2 ${
-                          darkMode ? 'text-pink-300' : 'text-blue-700'
-                        }`}
-                      >
-                        {t.projects.title} {project}
-                      </h4>
-                      <p
-                        className={
-                          darkMode
-                            ? 'text-violet-200 mb-4'
-                            : 'text-blue-600 mb-4'
-                        }
-                      >
-                        {t.projects.description}
-                      </p>
-                      <a
-                        href="#"
-                        className={`inline-block bg-gradient-to-r text-white px-4 py-2 rounded-full font-semibold transition duration-300 ${
-                          darkMode
-                            ? 'from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600'
-                            : 'from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600'
-                        }`}
-                      >
-                        {t.projects.cta}
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+  <div className="container mx-auto px-4">
+    <h3
+      className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${
+        darkMode ? 'from-violet-400 to-pink-500' : 'from-blue-600 to-cyan-500'
+      }`}
+    >
+      {t.projects.title}
+    </h3>
+    <div
+      className="grid gap-8 justify-center"
+      style={{
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      }}
+    >
+      {t.projects.projectsList.map((project, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.05 }}
+          className={`rounded-lg shadow-lg overflow-hidden ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}
+          style={{ minWidth: '300px', maxWidth: '600px' }}
+        >
+          <div
+            className={`h-48 bg-cover bg-center`}
+            style={{ backgroundImage: `url(${project.image})` }}
+          />
+          <div className="p-6">
+            <h4
+              className={`text-2xl font-semibold mb-2 ${
+                darkMode ? 'text-pink-300' : 'text-blue-700'
+              }`}
+            >
+              {project.name}
+            </h4>
+            <p
+              className={darkMode ? 'text-violet-200 mb-4' : 'text-blue-600 mb-4'}
+            >
+              {project.description}
+            </p>
+            <a
+              href={project.link}
+              className={`inline-block bg-gradient-to-r text-white px-4 py-2 rounded-full font-semibold transition duration-300 ${
+                darkMode
+                  ? 'from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600'
+                  : 'from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600'
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t.projects.cta}
+            </a>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
           <section id="contact" className="py-20 relative">
             <div className="container mx-auto px-4">
