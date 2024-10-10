@@ -31,13 +31,19 @@ export const translations = {
       "cta": "Learn More",
       "projectsList": [
         {
-          "name": "Soon",
+          "name": "Soon 1",
           "link": "https://github.com/guilhermehvsantos",
           "description": "Under construction",
           "image": " "
         },
         {
-          "name": "Soon",
+          "name": "Soon 2",
+          "link": "https://github.com/guilhermehvsantos",
+          "description": "Under construction",
+          "image": " "
+        },        
+        {
+          "name": "Soon 3",
           "link": "https://github.com/guilhermehvsantos",
           "description": "Under construction",
           "image": " "
@@ -73,13 +79,19 @@ export const translations = {
       "cta": "Saiba Mais",
       "projectsList": [
         {
-          "name": "Em breve",
+          "name": "Em breve 1",
           "link": "https://github.com/guilhermehvsantos",
           "description": "Em construção",
           "image": " "
         },
         {
-          "name": "Em breve",
+          "name": "Em breve 2",
+          "link": "https://github.com/guilhermehvsantos",
+          "description": "Em construção",
+          "image": " "
+        },
+        {
+          "name": "Em breve 3",
           "link": "https://github.com/guilhermehvsantos",
           "description": "Em construção",
           "image": " "

@@ -308,7 +308,6 @@ export default function Component() {
               </div>
             </div>
           </section>
-
           <section id="projects" className="py-20 relative">
   <div className="container mx-auto px-4">
     <h3
@@ -319,9 +318,11 @@ export default function Component() {
       {t.projects.title}
     </h3>
     <div
-      className="grid gap-8 justify-center"
+      className="grid gap-16 justify-center"
       style={{
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        paddingLeft: '10%',
+        paddingRight: '10%',
       }}
     >
       {t.projects.projectsList.map((project, index) => (
@@ -331,7 +332,7 @@ export default function Component() {
           className={`rounded-lg shadow-lg overflow-hidden ${
             darkMode ? 'bg-gray-800' : 'bg-white'
           }`}
-          style={{ minWidth: '300px', maxWidth: '600px' }}
+          style={{ minWidth: '300px' }}
         >
           <div
             className={`h-48 bg-cover bg-center`}
@@ -368,6 +369,8 @@ export default function Component() {
     </div>
   </div>
 </section>
+
+
 
 
 
