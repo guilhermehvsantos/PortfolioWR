@@ -31,10 +31,10 @@ export const translations = {
       "cta": "Learn More",
       "projectsList": [
         {
-          "name": "Soon 1",
-          "link": "https://github.com/guilhermehvsantos",
-          "description": "Under construction",
-          "image": " "
+          "name": "Top Trumps",
+          "link": "https://github.com/guilhermehvsantos/Jojo-SuperTrunfo",
+          "description": "Card game based on the Jojo's anime using JS, HTML and CSS",
+          "image": "https://media.vgm.io/products/81/2618/2618-1594042212.png"
         },
         {
           "name": "Soon 2",
@@ -79,10 +79,11 @@ export const translations = {
       "cta": "Saiba Mais",
       "projectsList": [
         {
-          "name": "Em breve 1",
-          "link": "https://github.com/guilhermehvsantos",
-          "description": "Em construção",
-          "image": " "
+          "name": "Super Trunfo",
+          "link": "https://github.com/guilhermehvsantos/Jojo-SuperTrunfo",
+          "description": "Jogo de cartas baseado no anime de Jojo utilizando JS, HTML e CSS",
+          "image": "https://media.vgm.io/products/81/2618/2618-1594042212.png",
+          "try": "https://guilhermehvsantos.github.io/Jojo-SuperTrunfo/"
         },
         {
           "name": "Em breve 2",
