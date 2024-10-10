@@ -75,7 +75,7 @@ export default function Component() {
     >
       <div className={`fixed inset-0 bg-grid-pattern opacity-10 pointer-events-none ${darkMode ? '' : 'invert'}`} />
       <div className="relative">
-        <nav className={`fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-md ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
+        <nav className={`fixed top-0 left-0 right-0 z-50 bg-opacity-90 backdrop-blur-md mb-20${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center py-4">
               <h1 className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-pink-500 to-violet-500' : 'from-blue-500 to-cyan-500'}`}>
